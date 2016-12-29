@@ -1,9 +1,4 @@
 
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
-
 import React, {
     Component,
 } from 'react';
@@ -15,9 +10,11 @@ import {
     StyleSheet,
     Text,
     View,
+    TouchableOpacity,
+    Navigator,
 } from 'react-native';
 
-
+import SecondPageComponent2 from './SecondPageComponent2';
 var REQUEST_URL = 'https://api.douban.com/v2/movie/coming_soon';
 
 
@@ -33,6 +30,7 @@ class Movie2 extends Component {
         // 在ES6中，如果在自定义的函数里使用了this关键字，则需要对其进行“绑定”操作，否则this的指向会变为空
         // 像下面这行代码一样，在constructor中使用bind是其中一种做法（还有一些其他做法，如使用箭头函数等）
         this.fetchData = this.fetchData.bind(this);
+        this.push= this.push.bind(this);
     }
     componentDidMount() {
         this.fetchData();
@@ -56,10 +54,11 @@ class Movie2 extends Component {
         return (
             <View>
                 <Text style={styles.Top}>即将上映</Text>
-            <ListView    style={styles.listView}
-                         dataSource={this.state.dataSource}
-                         renderRow={this.renderMovie}
-            />
+                <TouchableOpacity  onPress={()=>{this.push(Movie2)}}>
+                    <ListView style={styles.listView}
+                              dataSource={this.state.dataSource}
+                              renderRow={this.renderMovie}/>
+                </TouchableOpacity>
             </View>
         );
 
@@ -92,7 +91,14 @@ class Movie2 extends Component {
             </View>
         );
     }
-
+    push(movie){
+        this.props.navigator.push({
+            id:'SecondPageComponent2',
+            passProps:{data:movie},
+            component:SecondPageComponent2,
+            sceneConfig:Navigator.SceneConfigs.HorizontalSwipeJump,
+        });
+    }
 }
 
 

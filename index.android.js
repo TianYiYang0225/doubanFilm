@@ -8,11 +8,10 @@ import {
 
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import WeixinTabBar from './tab';
-import Movie2 from './movie2'
 import Movie3 from './movie3'
-import Movie4 from './movie4'
 import SampleComponent from './SampleComponent'
-
+import SampleComponent2 from './SampleComponent2'
+import SampleComponent3 from './SampleComponent3'
 
 class SampleAppMovies extends Component {
 
@@ -34,11 +33,11 @@ class SampleAppMovies extends Component {
 
                 <SampleComponent style={styles.content} tabLabel='key1'/>
 
-                <Movie2 style={styles.content} tabLabel='key2'/>
+                <SampleComponent2 style={styles.content} tabLabel='key2'/>
 
                 <Movie3 style={styles.content} tabLabel='key3'/>
 
-                <Movie4 style={styles.content} tabLabel='key4'/>
+                <SampleComponent3 style={styles.content} tabLabel='key4'/>
 
             </ScrollableTabView>
 
