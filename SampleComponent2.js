@@ -9,7 +9,7 @@ import {
     Navigator
 } from 'react-native';
 import Movie2 from './movie2';
-class SampleComponent extends React.Component {
+class SampleComponent2 extends React.Component {
     render() {
         let defaultName = 'movie2';
         let defaultComponent = Movie2;
@@ -28,4 +28,4 @@ class SampleComponent extends React.Component {
         );
     }
 }
-export default SampleComponent
+export default SampleComponent2
